@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.102"
-evdev = "0.13.2"
-image = "0.25.9"
+anyhow = "1"
+rdev = { version = "0.5", features = ["unstable_grab"] }
+image = "0.25"
 nix = { version = "0.31.1", features = ["poll"] }
-nokhwa = { version = "0.10.10", features = ["input-native"] }
+nokhwa = { version = "0.10", features = ["input-native"] }
