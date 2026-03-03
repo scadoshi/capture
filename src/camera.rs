@@ -15,13 +15,17 @@ impl Camera {
             RequestedFormat::new::<RgbFormat>(RequestedFormatType::AbsoluteHighestResolution),
         )?;
         camera.open_stream()?;
+        println!("Camera initialized");
         for _ in 0..WARMUP_FRAME_COUNT {
             camera.frame()?;
         }
+        println!("Camera warmed up");
         Ok(Self(camera))
     }
 
     pub fn shoot(&mut self) -> anyhow::Result<ImageBuffer<Rgb<u8>, Vec<u8>>> {
-        Ok(self.0.frame()?.decode_image::<RgbFormat>()?)
+        let image = self.0.frame()?.decode_image::<RgbFormat>()?;
+        println!("Frame shot");
+        Ok(image)
     }
 }
