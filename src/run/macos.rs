@@ -1,6 +1,7 @@
-use crate::capture_state::CaptureState;
 use anyhow::anyhow;
 use rdev::{Event, EventType, Key, grab};
+
+use crate::capture_state::CaptureState;
 use std::{rc::Rc, sync::Mutex};
 
 pub fn run() -> anyhow::Result<()> {
