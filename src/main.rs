@@ -6,7 +6,7 @@ mod run;
 use run::linux::run;
 
 #[cfg(target_os = "macos")]
-use run::run;
+use run::macos::run;
 
 fn main() {
     if let Err(e) = run() {
